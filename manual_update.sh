@@ -25,8 +25,9 @@ do
 	echo -e "Enter your selection \c"
 	read answer
 	case "$answer" in
-		1) git pull
-		chmod +x *.sh
+		1) sudo git stash
+		sudo git pull
+		sudo chmod +x *.sh
 		echo "You monerodo OS has been updated. To see some changes you will need to exit the OS and then start it again by typing monerodo"
 		echo "Press return to continue"
 		read continue;;

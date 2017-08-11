@@ -16,16 +16,16 @@ sudo apt-get -y upgrade
 sudo apt-get -y autoremove
 sudo apt-get -y remove nodejs
 
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+sudo wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
 export NVM_DIR="/home/bob/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local
 
-nvm install v6.9.2
-nvm alias default v6.9.2
-nvm use v6.9.2
+nvm install v0.10.40
+nvm use v0.10
+nvm alias default v0.10.40
 
 cd /monerodo/
 
@@ -37,9 +37,9 @@ sudo git checkout clean
 
 sudo rm-r node_modules
 
-sudo nvm alias default v6.9.2
+sudo nvm alias default v0.10.40
 
-sudo cp /monerodo/ging_pool/config_monerodo.json /monerodo/ging_pool/config.json
+sudo cp /monerodo/ging_pool/config_example.json /monerodo/ging_pool/config.json
 
 cd /monerodo/ging_pool
 sudo cp /monerodo/ging_pool/config.json $FILEDIR/config.json
@@ -47,10 +47,9 @@ sudo cp /monerodo/ging_pool/config.json $FILEDIR/config.json
 echo "##### STARTING POOL COMPILE ######"
 sudo npm update
 
-
 ## Update IP address from repo dummy IP
 
-sed -i -e "s/333.333.333.333/$current_ip/g" $FILEDIR/config.json
+sudo sed -i -e "s/333.333.333.333/$current_ip/g" $FILEDIR/config.json
 sudo cp $FILEDIR/config.json /monerodo/ging_pool/ 
 
 ### Update monero bins
@@ -58,13 +57,13 @@ sudo cp $FILEDIR/config.json /monerodo/ging_pool/
 now=$(date +"%m_%d_%Y")
 
 cd /home/bob/monero_files/
-mkdir monero_$now
+sudo mkdir monero_$now
 cd monero_$now
 
-rm linux64*
+sudo rm linux64*
 
-wget https://downloads.getmonero.org/linux64
-tar -xjvf linux64
+sudo wget https://downloads.getmonero.org/linux64
+sudo tar -xjvf linux64
 
 # Copy binaries to /bin
 #Restart service to use new binaries
@@ -72,6 +71,8 @@ export running=$(service mos_bitmonero status)
 export mos_service="mos_bitmonero"
 
 /home/bob/monerodo/service_off.sh
+
+cd monero*
 
 sudo cp monerod /bin/
 sudo cp monero-wallet-cli /bin/
@@ -81,7 +82,7 @@ echo "You'll have to turn monero core on again in the settings menu. Press enter
 read goback
 cd /home/bob/monerodo/
 
-cp /home/bob/monerodo/conf_files/mos_poolnode.conf /home/bob/.monerodo/
+sudo cp /home/bob/monerodo/conf_files/mos_poolnode.conf /home/bob/.monerodo/
 sudo cp /home/bob/monerodo/conf_files/mos_poolnode.conf /etc/init/
 
 cd /home/bob/monerodo/

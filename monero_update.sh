@@ -20,19 +20,22 @@
 #MEM=`free -m | grep Mem | awk '{print $2}'`
 #GBMEM=$[$MEM/1000]
 #echo $GBMEM
+
 #Pull repository for updates and compile
 
-DIRECTORY="/home/bob/bitmonero"
+DIRECTORY="/home/bob/monerodo"
 if [ -d "$DIRECTORY" ]; then
-  cd /home/bob/bitmonero
-  git pull
-  make
+  cd /home/bob/monerodo
+  sudo git stash
+  sudo git pull
+  sudo make
 else
   cd /home/bob/
-  git clone https://github.com/monero-project/bitmonero.git
-  cd /home/bob/bitmonero
-  git pull
-  make
+  sudo git clone https://github.com/monero-project/monero.git
+  cd /home/bob/monerodo
+  sudo git stash
+  sudo git pull
+  sudo make
 fi
 
 # Copy binaries to /bin

@@ -11,11 +11,11 @@ FILEDIR=$(grep -n 'filedir' /home/bob/monerodo/conf_files/monerodo.index |cut -d
 if [[ $current_ip != $last_ip ]]; then
         #sudo service mos_bitmonero stop # Removed 20160827 because if the daemon is supposed to be off this doesn't make sense
         # Changes all the active mos_conf files
-        sed -i -e "s/$last_ip/$current_ip/g" /etc/init/mos_*.conf
+        sudo sed -i -e "s/$last_ip/$current_ip/g" /etc/init/mos_*.conf
 
         # Changes any inactive mos_conf files in the mos directory, useful for if something hasn't been activated yet or is suspended
 
-        sed -i -e "s/$last_ip/$current_ip/g" $FILEDIR/mos_*.conf
+        sudo sed -i -e "s/$last_ip/$current_ip/g" $FILEDIR/mos_*.conf
 
 	#Brute force attempt. Slogged system
 	#find / -type f -exec sed -i -e "s/$last_ip/$current_ip/g" {} \;
@@ -23,7 +23,7 @@ if [[ $current_ip != $last_ip ]]; then
 	# Changes pool configuration and website urls and blanket the home directory.
 	# Might mess with git. 
 	find /var/www/ -type f -exec sed -i -e "s/$last_ip/$current_ip/g" {} \;
-	sed -i -e "s/$last_ip/$current_ip/g" /monerodo/ging_pool/*
+	sudo sed -i -e "s/$last_ip/$current_ip/g" /monerodo/ging_pool/*
 	sudo find /home/bob/ -type f -exec sed -i -e "s/$last_ip/$current_ip/g" {} \;
 
         # sudo service mos_bitmonero start  # Removed 20160827 because if the daemon is supposed to be off this doesn't make sense
@@ -36,4 +36,3 @@ if [[ $current_ip != $last_ip ]]; then
         echo $current_ip > /monerodo/last.ip
 
 fi
-

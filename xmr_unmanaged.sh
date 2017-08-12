@@ -43,6 +43,3 @@ export running=$(service mos_bitmonero status)
 export mos_service="mos_bitmonero"
 
 ./service_on.sh
-
-
-

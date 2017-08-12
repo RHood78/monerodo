@@ -39,7 +39,7 @@ sudo rm-r node_modules
 
 sudo nvm alias default v0.10.40
 
-sudo cp /monerodo/ging_pool/config_example.json /monerodo/ging_pool/config.json
+sudo cp /monerodo/ging_pool/config_monerodo.json /monerodo/ging_pool/config.json
 
 cd /monerodo/ging_pool
 sudo cp /monerodo/ging_pool/config.json $FILEDIR/config.json

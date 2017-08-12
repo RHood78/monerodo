@@ -22,7 +22,7 @@ if [[ $current_ip != $last_ip ]]; then
 
 	# Changes pool configuration and website urls and blanket the home directory.
 	# Might mess with git. 
-	find /var/www/ -type f -exec sed -i -e "s/$last_ip/$current_ip/g" {} \;
+	sudo find /var/www/ -type f -exec sed -i -e "s/$last_ip/$current_ip/g" {} \;
 	sudo sed -i -e "s/$last_ip/$current_ip/g" /monerodo/ging_pool/*
 	sudo find /home/bob/ -type f -exec sed -i -e "s/$last_ip/$current_ip/g" {} \;
 

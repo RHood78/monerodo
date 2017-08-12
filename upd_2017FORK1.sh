@@ -56,7 +56,7 @@ sudo cp $FILEDIR/config.json /monerodo/ging_pool/
 
 now=$(date +"%m_%d_%Y")
 
-cd /home/bob/monero_files/
+cd /home/$USER/monero_files/
 sudo mkdir monero_$now
 cd monero_$now
 
@@ -70,7 +70,7 @@ sudo tar -xjvf linux64
 export running=$(service mos_bitmonero status)
 export mos_service="mos_bitmonero"
 
-/home/bob/monerodo/service_off.sh
+/home/$USER/monerodo/service_off.sh
 
 cd monero*
 
@@ -80,12 +80,12 @@ sudo cp monero-wallet-rpc /bin/
 
 echo "You'll have to turn monero core on again in the settings menu. Press enter to continue"
 read goback
-cd /home/bob/monerodo/
+cd /home/$USER/monerodo/
 
-sudo cp /home/bob/monerodo/conf_files/mos_poolnode.conf /home/bob/.monerodo/
-sudo cp /home/bob/monerodo/conf_files/mos_poolnode.conf /etc/init/
+sudo cp /home/$USER/monerodo/conf_files/mos_poolnode.conf /home/bob/.monerodo/
+sudo cp /home/$USER/monerodo/conf_files/mos_poolnode.conf /etc/init/
 
-cd /home/bob/monerodo/
+cd /home/$USER/monerodo/
 
 ### Update pool wallet
 clear
@@ -101,7 +101,7 @@ echo ""
 
 echo "yes" > $FILEDIR/2017FORK1.txt
 
-sudo cp /home/bob/monerodo/conf_files/change_ip.sh /monerodo/
+sudo cp /home/$USER/monerodo/conf_files/change_ip.sh /monerodo/
 sudo chmod +x /monerodo/change_ip.sh
 
 echo "Your Monerodo has been updated for the upcoming fork. Thanks for using the Monerodo. Please consider donating for continued development."

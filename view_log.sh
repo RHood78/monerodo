@@ -27,4 +27,3 @@ echo "#############################"
 sudo tail -f /var/log/upstart/mos_$service.log
 ;;
 esac
-

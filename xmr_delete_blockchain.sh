@@ -30,4 +30,3 @@ sudo service mos_bitmonero start
 ;;
 *) echo "Blorp";;
 esac
-

@@ -4,4 +4,3 @@
 sudo service mos_bitmonero stop
 sudo rm /.bitmonero/p2pstate.bin
 sudo service mos_bitmonero start
-

@@ -17,5 +17,3 @@ echo "example: myviewonlywallet.bin"
 read vkeyfile
 
 sudo monero-wallet-cli --daemon-host $current_ip --generate-from-view-key $vkeyfile
-
-

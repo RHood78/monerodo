@@ -26,7 +26,7 @@ sudo cp monero-wallet-rpc /bin
 
 sudo sed -i -e "s/333.333.333.333/$current_ip/g" /home/bob/monerodo/conf_files/mos_bitmonero.conf
 
-sudo cp /home/bob/monerodo/conf_files/mos_bitmonero.conf /home/$USER/.monerodo
+sudo cp /home/bob/monerodo/conf_files/mos_bitmonero.conf /home/bob/.monerodo
 sudo cp /home/bob/monerodo/conf_files/mos_bitmonero.conf /etc/init/
 
 echo "You'll have to turn monero core on again in the settings menu. Press enter to continue"

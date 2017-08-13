@@ -5,15 +5,15 @@
 export u="$USER" #should be deprecated by now, all instances replaced with bob
 export current_ip="$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')"
 export help="Type 'back' to return to previous menu"
-export FILEDIR=$(grep -n 'filedir' /home/bob/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
-export VERSION=$(grep -n 'version' /home/bob/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
+export FILEDIR=$(grep -n 'filedir' /home/$USER/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
+export VERSION=$(grep -n 'version' /home/$USER/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
 
 #### Duh
 
-cd /home/bob/monerodo/
+cd /home/$USER/monerodo/
 
 #Put the auto update back in
-git pull
+sudo git pull
 clear
 ######### Checks if this is first time running, forces change of password and other important settings
 # Put into its own script 20160518
@@ -37,15 +37,13 @@ clear
 
 # ------------------------ END OF HEADER -------------------------
 
-
-
 #Menu
 while true
 do
 	echo "================="
 	echo "Monerodo Menu. Version $VERSION"
 	echo "================="
-	cat /home/bob/.monerodo/status.txt
+	cat /home/$USER/.monerodo/status.txt
 	if [ -e "$FILEDIR/2017FORK1.txt" ]
 	then 
 	echo "Monerodo is updated for the Jan 2017 fork. Good job!"

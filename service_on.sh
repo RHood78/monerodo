@@ -11,6 +11,3 @@ else sudo cp $FILEDIR/$mos_service.conf /etc/init/
 fi
 echo "$mos_service has been turned on. Press enter to continue"
 read goback
-
-
-

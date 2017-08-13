@@ -5,4 +5,3 @@ respawn
 respawn limit 10 10 
 post-start exec sleep 3 
 chdir /monerodo/MiniNodo/ 
-

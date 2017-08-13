@@ -9,7 +9,7 @@
 #echo "Or work on Monerodo yourself! https://github.com/Gingeropolous/monerodo "
 
 cd /home/bob/monerodo/conf_files/
-rm mos_cpuminer.conf
+sudo rm mos_cpuminer.conf
 
 #Use half of available cores for CPU mining
 n=$(nproc)

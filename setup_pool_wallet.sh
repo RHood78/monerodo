@@ -81,9 +81,9 @@ export mos_service="mos_monerowallet"
 
 ./service_off.sh
 
-sudo mv $FILEDIR/mos_monerowallet.conf $FILEDIR/mos_monerowallet.previous
-sudo cp /home/bob/monerodo/conf_files/mos_monerowallet.base $FILEDIR/mos_monerowallet.conf
-sudo echo "exec monero-wallet-rpc --daemon-host $current_ip --rpc-bind-port 18082 --rpc-bind-ip 127.0.0.1 --wallet-file /monerodo/wallets/$poolwallet --password $poolpass " >> $FILEDIR/mos_monerowallet.conf
+smv $FILEDIR/mos_monerowallet.conf $FILEDIR/mos_monerowallet.previous
+cp /home/bob/monerodo/conf_files/mos_monerowallet.base $FILEDIR/mos_monerowallet.conf
+echo "exec monero-wallet-rpc --daemon-host $current_ip --rpc-bind-port 18082 --rpc-bind-ip 127.0.0.1 --wallet-file /monerodo/wallets/$poolwallet --password $poolpass " >> $FILEDIR/mos_monerowallet.conf
 
 # modify pool address in config.json in local monerodo directory and copy to pool directory
 sudo cp /monerodo/pool_add.txt /home/bob/.monerodo/pool_add.txt

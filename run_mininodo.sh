@@ -31,7 +31,7 @@ do
 		read letsgo 
 		./ctrlc.sh
 		sudo nodejs /monerodo/MiniNodo/MiniNodo.js -p poop
-;;
+		;;
                 r) exit ;;
         esac
         clear

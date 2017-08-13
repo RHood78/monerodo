@@ -73,8 +73,8 @@ export mos_service="mos_nodowallet"
 ./service_off.sh
 
 sudo mv $FILEDIR/mos_nodowallet.conf $FILEDIR/mos_nodowallet.previous
-sudo cp /home/bob/monerodo/conf_files/mos_nodowallet.base $FILEDIR/mos_nodowallet.conf
-sudo echo "exec monero-wallet-rpc --daemon-host $current_ip --rpc-bind-port 18082 --rpc-bind-ip 127.0.0.1 --wallet-file /monerodo/wallets/$nodowallet --password $nodopass " >> $FILEDIR/mos_nodowallet.conf
+cp /home/bob/monerodo/conf_files/mos_nodowallet.base $FILEDIR/mos_nodowallet.conf
+echo "exec monero-wallet-rpc --daemon-host $current_ip --rpc-bind-port 18082 --rpc-bind-ip 127.0.0.1 --wallet-file /monerodo/wallets/$nodowallet --password $nodopass " >> $FILEDIR/mos_nodowallet.conf
 
 
 ./important.sh
@@ -103,8 +103,8 @@ export mos_service="mos_mininodo"
 ./service_off.sh
 
 sudo mv $FILEDIR/mos_mininodo.conf $FILEDIR/mos_mininodo.previous
-sudo cp /home/bob/monerodo/conf_files/mos_mininodo.base $FILEDIR/mos_mininodo.conf
-sudo echo "exec node MiniNodo.js -p $nodoservpass" >> $FILEDIR/mos_mininodo.conf
+cp /home/bob/monerodo/conf_files/mos_mininodo.base $FILEDIR/mos_mininodo.conf
+echo "exec node MiniNodo.js -p $nodoservpass" >> $FILEDIR/mos_mininodo.conf
 
 sudo cp $FILEDIR/mos_mininodo.conf /etc/init/
 sudo cp $FILEDIR/mos_nodowallet.conf /etc/init/

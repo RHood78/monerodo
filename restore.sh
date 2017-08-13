@@ -11,5 +11,3 @@ echo "the restored wallet. example - mywallet.bin"
 echo "========================="
 echo ""
 sudo monero-wallet-cli --daemon-host $current_ip --restore-deterministic-wallet
-
-

@@ -18,7 +18,7 @@ sudo apt-get -y remove nodejs
 
 sudo wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
-export NVM_DIR="/home/bob/.nvm"
+export NVM_DIR="/home/$USER/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local
@@ -82,7 +82,7 @@ echo "You'll have to turn monero core on again in the settings menu. Press enter
 read goback
 cd /home/$USER/monerodo/
 
-sudo cp /home/$USER/monerodo/conf_files/mos_poolnode.conf /home/bob/.monerodo/
+sudo cp /home/$USER/monerodo/conf_files/mos_poolnode.conf /home/$USER/.monerodo/
 sudo cp /home/$USER/monerodo/conf_files/mos_poolnode.conf /etc/init/
 
 cd /home/$USER/monerodo/

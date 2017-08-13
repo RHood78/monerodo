@@ -6,7 +6,7 @@
 
 ssh-keygen -t rsa1 -f /etc/ssh/ssh_host_rsa_key
 ssh-keygen -t dsa  -f /etc/ssh/ssh_host_dsa_key
-rm /etc/init/mos_newkeys.conf
+sudo rm /etc/init/mos_newkeys.conf
 
 echo "[`date`] The ssh secondary keyscript ran" >> /monerodo/sshkeyscript.log
 

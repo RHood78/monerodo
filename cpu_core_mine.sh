@@ -43,8 +43,8 @@ do
 		new_line="start-mining=$mine_add"
 		new_line2="mining-threads=$n"
 		if [ "$(grep mining $FILEDIR/bitmonero.conf)" ]; then
-		sed -i "s/.*start-mining.*/$new_line/" $FILEDIR/bitmonero.conf
-		sed -i "s/.*threads.*/$new_line2/" $FILEDIR/bitmonero.conf
+		sudo sed -i "s/.*start-mining.*/$new_line/" $FILEDIR/bitmonero.conf
+		sudo sed -i "s/.*threads.*/$new_line2/" $FILEDIR/bitmonero.conf
 		else
 		echo $new_line>>$FILEDIR/bitmonero.conf
 		echo $new_line2>>$FILEDIR/bitmonero.conf
@@ -54,8 +54,8 @@ do
 		4)monerod --rpc-bind-ip $current_ip stop_mining
 		new_line=""
                 if [ "$(grep mining $FILEDIR/bitmonero.conf)" ]; then
-                sed -i "s/.*start-mining.*/$new_line/" $FILEDIR/bitmonero.conf
-                sed -i "s/.*threads.*/$new_line/" $FILEDIR/bitmonero.conf
+                sudo sed -i "s/.*start-mining.*/$new_line/" $FILEDIR/bitmonero.conf
+                sudo sed -i "s/.*threads.*/$new_line/" $FILEDIR/bitmonero.conf
                 else
 		echo "Core mining was not enabled to start one boot. Carry on."
                 fi

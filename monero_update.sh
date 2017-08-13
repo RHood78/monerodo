@@ -32,7 +32,7 @@ if [ -d "$DIRECTORY" ]; then
 else
   cd /home/$USER/
   sudo git clone https://github.com/monero-project/monero.git
-  cd /home/bob/monerodo
+  cd /home/$USER/monerodo
   sudo git stash
   sudo git pull
   sudo make
@@ -41,6 +41,6 @@ fi
 # Copy binaries to /bin
 #Restart service to use new binaries
 sudo service mos_bitmonero stop
-sudo cp /home/bob/bitmonero/build/release/bin/monerod /bin
-sudo cp /home/bob/bitmonero/build/release/bin/monero-wallet-cli /bin
+sudo cp /home/$USER/bitmonero/build/release/bin/monerod /bin
+sudo cp /home/$USER/bitmonero/build/release/bin/monero-wallet-cli /bin
 sudo service mos_bitmonero start

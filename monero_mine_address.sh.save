@@ -1,12 +1,12 @@
 #!/bin/bash
 #MONERODO Change  miner address
 #
-FILEDIR=$(grep -n 'filedir' /home/bob/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
+FILEDIR=$(grep -n 'filedir' /home/$USER/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
 current_ip="$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')" 
 
 clear
 #receive new mining address, export to global MOS variable, and store in MOS system folder
-rm /home/bob/monerodo/conf_files/mine_add.txt 
+sudo rm /home/$USER/monerodo/conf_files/mine_add.txt 
 echo "Please enter your monero mining address"
 echo "(Reminder: shift+insert is paste)"
 echo "You can type back to exit this script"
@@ -26,7 +26,7 @@ read ext_mine
 
 # write conf file for nvidia miner
 
-mv $FILEDIR/mos_miner.conf $FILEDIR/mos_miner.previous
+sudo mv $FILEDIR/mos_miner.conf $FILEDIR/mos_miner.previous
 
 echo -e  "start on started mos_poolnode \n\
 stop on stopping mos_poolnode \n\
@@ -40,7 +40,7 @@ exec ./ccminer -l 8x60 -o stratum+tcp://$current_ip:5555 -u $mine_add -p x \n\
 
 # write conf file for nvidia external pool miner
 
-mv $FILEDIR/mos_ext_miner.conf $FILEDIR/mos_ext_miner.previous
+sudo mv $FILEDIR/mos_ext_miner.conf $FILEDIR/mos_ext_miner.previous
 
 echo -e  "start on started mos_poolnode \n\
 stop on stopping mos_poolnode \n\
@@ -55,7 +55,7 @@ exec ./ccminer -l 8x60 -o stratum+tcp://$ext_mine:5555 -u $mine_add -p x \n\
 
 #write conf files for cpu miner
 
-mv $FILEDIR/mos_cpuminer.conf $FILEDIR/mos_cpuminer.previous
+sudo mv $FILEDIR/mos_cpuminer.conf $FILEDIR/mos_cpuminer.previous
 
 #Use half of available cores for CPU mining
 n=$(nproc)

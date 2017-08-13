@@ -1,7 +1,7 @@
 #!/bin/bash
 # Monero Update script
 
-#cd /home/bob/monerodo/
+#cd /home/$USER/monerodo/
 #git pull
 #chmod +x *.sh
 ./dep_list.sh
@@ -23,14 +23,14 @@
 
 #Pull repository for updates and compile
 
-DIRECTORY="/home/bob/monerodo"
+DIRECTORY="/home/$USER/monerodo"
 if [ -d "$DIRECTORY" ]; then
-  cd /home/bob/monerodo
+  cd /home/$USER/monerodo
   sudo git stash
   sudo git pull
   sudo make
 else
-  cd /home/bob/
+  cd /home/$USER/
   sudo git clone https://github.com/monero-project/monero.git
   cd /home/bob/monerodo
   sudo git stash

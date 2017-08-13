@@ -27,7 +27,8 @@ do
 			read portdeny
 			sudo ufw deny $portdeny
 			;;
-		r) exit ;;
+		r) exit
+		;;
 	esac
 	echo ""
 	echo "Press Enter to contine"

@@ -10,7 +10,7 @@ new)
 echo "This access the logs for the monero NVIDIA miner"
 echo "How many lines of log do you want to see? (20 is usually good)"
 read lines
-sudo tail -n $lines /var/log/upstart/mos$service.log
+sudo tail -n $lines /var/log/upstart/mos_$service.log
 ;;
 old)
 echo "This accesses older logs for the monero NVIDIA miner"

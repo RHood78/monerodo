@@ -10,5 +10,3 @@ else echo "This service is already off"
 fi
 echo "$mos_service has been turned off. Press enter to continue"
 read goback
-
-

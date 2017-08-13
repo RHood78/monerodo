@@ -5,12 +5,12 @@
 export u="$USER" #should be deprecated by now, all instances replaced with bob
 export current_ip="$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')"
 export help="Type 'back' to return to previous menu"
-export FILEDIR=$(grep -n 'filedir' /home/$USER/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
-export VERSION=$(grep -n 'version' /home/$USER/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
+export FILEDIR=$(grep -n 'filedir' /home/bob/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
+export VERSION=$(grep -n 'version' /home/bob/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
 
 #### Duh
 
-cd /home/$USER/monerodo/
+cd /home/bob/monerodo/
 
 #Put the auto update back in
 sudo git pull
@@ -43,7 +43,7 @@ do
 	echo "================="
 	echo "Monerodo Menu. Version $VERSION"
 	echo "================="
-	cat /home/$USER/.monerodo/status.txt
+	cat /home/bob/.monerodo/status.txt
 	if [ -e "$FILEDIR/2017FORK1.txt" ]
 	then 
 	echo "Monerodo is updated for the Jan 2017 fork. Good job!"

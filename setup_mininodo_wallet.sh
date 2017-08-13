@@ -15,7 +15,7 @@ echo "For your reference, these are the available wallets in your wallet directo
 echo "------------------------------------------------"
 cd /monerodo/wallets/
 dir *.bin
-cd /home/$USER/monerodo/
+cd /home/bob/monerodo/
 echo "Do you want to use one of these wallets? yes / no"
 read usewallet
 case $usewallet in
@@ -39,7 +39,7 @@ do
 	echo "------------------------------------------------"
 	cd /monerodo/wallets/
 	dir *.bin
-	cd /home/$USER/monerodo/
+	cd /home/bob/monerodo/
 	echo "------------------------------------------------"
 	echo ""
 	echo "Please enter the name of your MiniNodo wallet and then press enter - example: mininodo.bin"
@@ -58,8 +58,8 @@ done
 clear
 
 #Record wallet file info in text file
-echo $nodowallet > /home/$USER/.monerodo/nodowallet.info
-sudo tail -n +1 /monerodo/wallets/$nodowallet.address* >> /home/$USER/.monerodo/nodowallet.info
+echo $nodowallet > /home/bob/.monerodo/nodowallet.info
+sudo tail -n +1 /monerodo/wallets/$nodowallet.address* >> /home/bob/.monerodo/nodowallet.info
 
 echo "We will now create the .conf file that will load monero-wallet-cli on boot."
 echo "Press enter to continue."
@@ -73,7 +73,7 @@ export mos_service="mos_nodowallet"
 ./service_off.sh
 
 sudo mv $FILEDIR/mos_nodowallet.conf $FILEDIR/mos_nodowallet.previous
-sudo cp /home/$USER/monerodo/conf_files/mos_nodowallet.base $FILEDIR/mos_nodowallet.conf
+sudo cp /home/bob/monerodo/conf_files/mos_nodowallet.base $FILEDIR/mos_nodowallet.conf
 sudo echo "exec monero-wallet-rpc --daemon-host $current_ip --rpc-bind-port 18082 --rpc-bind-ip 127.0.0.1 --wallet-file /monerodo/wallets/$nodowallet --password $nodopass " >> $FILEDIR/mos_nodowallet.conf
 
 
@@ -103,7 +103,7 @@ export mos_service="mos_mininodo"
 ./service_off.sh
 
 sudo mv $FILEDIR/mos_mininodo.conf $FILEDIR/mos_mininodo.previous
-sudo cp /home/$USER/monerodo/conf_files/mos_mininodo.base $FILEDIR/mos_mininodo.conf
+sudo cp /home/bob/monerodo/conf_files/mos_mininodo.base $FILEDIR/mos_mininodo.conf
 sudo echo "exec node MiniNodo.js -p $nodoservpass" >> $FILEDIR/mos_mininodo.conf
 
 sudo cp $FILEDIR/mos_mininodo.conf /etc/init/

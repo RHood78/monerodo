@@ -3,6 +3,6 @@
 if screen -ls | grep mos_main
 then screen -Dr mos_main
 else
-cd /home/$USER/monerodo
+cd /home/bob/monerodo
 screen -mS mos_main ./monerodo_os.sh
 fi

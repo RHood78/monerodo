@@ -28,17 +28,12 @@ do
 	echo ""
 	read answer
 	case "$answer" in
-		1) ./setup_mininodo_wallet.sh
-		;;
-		2) ./service_on.sh
-		;;
-		3) ./service_off.sh
-		;;
+		1) ./setup_mininodo_wallet.sh;;
+		2) ./service_on.sh;;
+		3) ./service_off.sh;;
 		4) ./service_off.sh
-		sudo rm /etc/init/mos_nodowallet.conf
-		;;
-		r) exit 
-		;;
+		sudo rm /etc/init/mos_nodowallet.conf;;
+		r) exit ;;
 	esac
 	clear
 done

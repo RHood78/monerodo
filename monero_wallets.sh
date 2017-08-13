@@ -20,7 +20,6 @@ do
 	case "$answer" in
 		1) sudo tail -n +1 *.address* && echo -e "\n";;
 		2) cd cold && sudo tail -n +1 *.address* && echo -e "\n" && cd ..;;
-
 		3)
 		echo "These are the current wallets in your wallet directory"
 		ls *.bin *.txt *.keys -l

@@ -1,7 +1,5 @@
-filedir=/home/bob/.monerodo
+filedir=/home/$USER/.monerodo
 version=3.3
-
-
 
 #############
 

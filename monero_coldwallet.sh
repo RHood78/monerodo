@@ -57,4 +57,4 @@ sudo reboot ;;
 echo "OK! We're going back to the main menu. Press return to continue!"
 read goback ;;
 
-cd /home/$USER/monerodo
+cd /home/bob/monerodo

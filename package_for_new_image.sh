@@ -7,7 +7,7 @@ case $answer in
 no) exit ;;
 yes)
 sudo service mos_bitmonero stop
-FILEDIR="/home/$USER/.monerodo"
+FILEDIR="/home/bob/.monerodo"
 sudo rm $FILEDIR/first_time.txt
 echo "yes" > $FILEDIR/first_time.txt
 sudo cp $FILEDIR/first_time.txt /monerodo/
@@ -24,19 +24,19 @@ sudo rm /var/log/upstart/mos_*
 
 sudo rm /var/log/upstart/mossys_*
 
-sudo rm /home/$USER/wallets/viewonly/*
-sudo rm /home/$USER/.monerodo/mos_* 
-sudo rm /home/$USER/.monerodo/*.txt 
-sudo rm /home/$USER/.monerodo/*.info
+sudo rm /home/bob/wallets/viewonly/*
+sudo rm /home/bob/.monerodo/mos_* 
+sudo rm /home/bob/.monerodo/*.txt 
+sudo rm /home/bob/.monerodo/*.info
 
-sudo cp /home/$USER/monerodo/conf_files/mos_bitmonero.conf /home/$USER/.monerodo/
-sudo cp /home/$USER/monerodo/conf_files/mos_poolnode.conf /home/$USER/.monerodo/
+sudo cp /home/bob/monerodo/conf_files/mos_bitmonero.conf /home/bob/.monerodo/
+sudo cp /home/bob/monerodo/conf_files/mos_poolnode.conf /home/bob/.monerodo/
 echo "yes" > $FILEDIR/first_time.txt
 sudo cp $FILEDIR/first_time.txt /monerodo/
 
-echo "Monerod hasn't run yet!" > /home/$USER/.monerodo/status.txt
-echo "The pool wallet and server haven't run yet!" > /home/$USER/.monerodo/status_poolwallet.txt 
-echo "The MiniNodo wallet and server haven't run yet!" > /home/$USER/.monerodo/status_nodowallet.txt
+echo "Monerod hasn't run yet!" > /home/bob/.monerodo/status.txt
+echo "The pool wallet and server haven't run yet!" > /home/bob/.monerodo/status_poolwallet.txt 
+echo "The MiniNodo wallet and server haven't run yet!" > /home/bob/.monerodo/status_nodowallet.txt
 ;;
 esac
 echo "Put the new keymaker in the upstart folder? Use this only when really burning a new image. A restart will delete this again."
@@ -44,7 +44,7 @@ echo "yes/no"
 read answer2
 case $answer2 in
 yes)
-sudo cp /home/$USER/monerodo/conf_files/mos_newkeys.conf /etc/init/
+sudo cp /home/bob/monerodo/conf_files/mos_newkeys.conf /etc/init/
 ;;
 no)exit;;
 esac

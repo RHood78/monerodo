@@ -23,26 +23,26 @@ export NVM_DIR="/home/bob/.nvm"
 
 n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local
 
-nvm install v0.10.40
-nvm use v0.10
-nvm alias default v0.10.40
+nvm install v6.9.2
+nvm use v6.9.2
+nvm alias default v6.9.2
 
 cd /monerodo/
 
-sudo git clone https://github.com/Gingeropolous/cryptonote-xmr-pool.git ging_pool
+sudo git clone https://github.com/Gingeropolous/cryptonote-xmr-pool.git pool
 
-cd ging_pool
+cd pool
 
 sudo git checkout clean
 
 sudo rm-r node_modules
 
-sudo nvm alias default v0.10.40
+sudo nvm alias default v6.9.2
 
-sudo cp /monerodo/ging_pool/config_monerodo.json /monerodo/ging_pool/config.json
+sudo cp /monerodo/pool/config_monerodo.json /monerodo/pool/config.json
 
-cd /monerodo/ging_pool
-sudo cp /monerodo/ging_pool/config.json $FILEDIR/config.json
+cd /monerodo/pool
+sudo cp /monerodo/pool/config.json $FILEDIR/config.json
 
 echo "##### STARTING POOL COMPILE ######"
 sudo npm update
@@ -50,7 +50,7 @@ sudo npm update
 ## Update IP address from repo dummy IP
 
 sudo sed -i -e "s/333.333.333.333/$current_ip/g" $FILEDIR/config.json
-sudo cp $FILEDIR/config.json /monerodo/ging_pool/ 
+sudo cp $FILEDIR/config.json /monerodo/pool/ 
 
 ### Update monero bins
 

@@ -85,7 +85,7 @@ export mos_service="mos_monerowallet"
 $current_ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
 sudo mv $FILEDIR/mos_monerowallet.conf $FILEDIR/mos_monerowallet.previous
 cp /home/bob/monerodo/conf_files/mos_monerowallet.base $FILEDIR/mos_monerowallet.conf
-echo "exec monero-wallet-rpc --wallet-file /monerodo/wallets/$poolwallet --password $poolpass --daemon-host $current_ip --rpc-bind-port 18082 --rpc-bind-ip 127.0.0.1">> $FILEDIR/mos_monerowallet.conf
+echo "exec monero-wallet-rpc --wallet-file /monerodo/wallets/$poolwallet --password $poolpass --daemon-host $current_ip --daemon-port 18081 --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082" >> $FILEDIR/mos_monerowallet.conf
 
 # modify pool address in config.json in local monerodo directory and copy to pool directory
 sudo cp /monerodo/pool_add.txt /home/bob/.monerodo/pool_add.txt
@@ -108,7 +108,7 @@ sudo sed -i "s/.*poolAddress.*/$new_line/" $FILEDIR/config.json
 echo "This was the line entered into your config.json for your pool server"
 echo $new_line
 echo "This is the line in your config.json"
-sudo cp $FILEDIR/config.json /monerodo/ging_pool/
+sudo cp $FILEDIR/config.json /monerodo/pool/
 sudo grep "poolAddress" $FILEDIR/config.json
 
 sudo cp $FILEDIR/mos_poolnode.conf /etc/init/

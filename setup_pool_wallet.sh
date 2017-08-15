@@ -2,7 +2,7 @@
 #MONERODO script to setup pool wallet
 
 FILEDIR=$(grep -n 'filedir' /home/bob/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
-
+$current_ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
 
 echo "This script configures your Monerodo with a new pool wallet."
 echo "In order for your Monerodo to work properly, your pool wallet password is stored in a configuration file"
@@ -82,7 +82,6 @@ export mos_service="mos_monerowallet"
 ./service_off.sh
 
 #get current ip and update mos_monerowalet.conf file
-$current_ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
 sudo mv $FILEDIR/mos_monerowallet.conf $FILEDIR/mos_monerowallet.previous
 cp /home/bob/monerodo/conf_files/mos_monerowallet.base $FILEDIR/mos_monerowallet.conf
 echo "exec monero-wallet-rpc --wallet-file /monerodo/wallets/$poolwallet --password $poolpass --daemon-host $current_ip --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082" >> $FILEDIR/mos_monerowallet.conf

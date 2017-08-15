@@ -29,7 +29,7 @@ nvm alias default v6.9.2
 
 cd /monerodo/
 
-sudo git clone https://github.com/Gingeropolous/cryptonote-xmr-pool.git pool
+sudo git clone https://github.com/RHood78/cryptonote-xmr-pool.git pool
 
 cd pool
 

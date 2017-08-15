@@ -2,7 +2,7 @@
 #MONERODO script to setup MiniNodo wallet and server
 
 FILEDIR=$(grep -n 'filedir' /home/bob/monerodo/conf_files/monerodo.index |cut -d"=" -f2)
-
+$current_ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
 
 echo "This script configures your Monerodo to run the MiniNodo wallet software."
 echo "In order for the MiniNodo to work properly, your passwords are stored in configuration file"
@@ -73,10 +73,10 @@ export mos_service="mos_nodowallet"
 ./service_off.sh
 
 #get current ip and update mos_nodowallet.conf file
-$current_ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
+
 sudo mv $FILEDIR/mos_nodowallet.conf $FILEDIR/mos_nodowallet.previous
 cp /home/bob/monerodo/conf_files/mos_nodowallet.base $FILEDIR/mos_nodowallet.conf
-echo "exec monero-wallet-rpc --wallet-file /monerodo/wallets/$nodowallet --password $nodopass --daemon-host $current_ip --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082" >> $FILEDIR/mos_nodowallet.conf
+echo "exec monero-wallet-cli --wallet-file /monerodo/wallets/$nodowallet --password $nodopass --daemon-host $current_ip --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082" >> $FILEDIR/mos_nodowallet.conf
 
 
 ./important.sh

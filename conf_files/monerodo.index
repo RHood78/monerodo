@@ -1,7 +1,9 @@
 filedir=/home/bob/.monerodo
-version=3.3
+version=3.4
 
 #############
+3.4 fixed broken updates from the RTCring, moved off simplewallet and using monero-wallet-rpc and monero-wallet-cli
+also made changes to MiniNodo config
 
 3.3 fixed some stuff due to Monero 0.10.2 update
 

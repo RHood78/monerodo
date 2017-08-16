@@ -39,7 +39,7 @@ sudo rm-r node_modules
 
 sudo nvm alias default v6.9.2
 
-sudo cp /monerodo/pool/config_monerodo.json /monerodo/pool/config.json
+sudo cp /monerodo/pool/config_example.json /monerodo/pool/config.json
 
 cd /monerodo/pool
 sudo cp /monerodo/pool/config.json $FILEDIR/config.json

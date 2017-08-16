@@ -76,8 +76,9 @@ export mos_service="mos_nodowallet"
 
 sudo mv $FILEDIR/mos_nodowallet.conf $FILEDIR/mos_nodowallet.previous
 sudo cp /home/bob/monerodo/conf_files/mos_nodowallet.base $FILEDIR/mos_nodowallet.conf
+sudo chmod go+w $FILEDIR/mos_nodowallet.conf
 echo "exec monero-wallet-rpc --wallet-file /monerodo/wallets/$nodowallet --password $nodopass --daemon-host $current_ip --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082" >> $FILEDIR/mos_nodowallet.conf
-
+sudo chmod go-w $FILEDIR/mos_nodowallet.conf
 
 ./important.sh
 echo "We will now configure the actual wallet server page. When you access the web GUI wallet, you need to enter a password."

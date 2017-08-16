@@ -23,9 +23,9 @@ export NVM_DIR="/home/bob/.nvm"
 
 n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local
 
-nvm install v6.9.2
-nvm use v6.9.2
-nvm alias default v6.9.2
+nvm install v0.10.40
+nvm use v0.10
+nvm alias default v0.10.40
 
 cd /monerodo/
 
@@ -37,7 +37,7 @@ sudo git checkout clean
 
 sudo rm -r node_modules
 
-sudo nvm alias default v6.9.2
+sudo nvm alias default v0.10.40
 
 sudo cp /monerodo/pool/config_example.json /monerodo/pool/config.json
 

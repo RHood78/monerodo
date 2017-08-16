@@ -25,7 +25,7 @@
 
 DIRECTORY="/home/bob/monerodo"
 if [ -d "$DIRECTORY" ]; then
-  cd /home/bob/monerodo
+  cd /home/bob/monerodo/
   sudo git stash
   sudo git pull
   sudo make

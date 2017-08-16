@@ -5,7 +5,7 @@ now=$(date +"%m_%d_%Y")
 
 cd /home/bob/monero_files/
 sudo mkdir monero_$now
-cd monero_$now
+cd /home/bob/monero_files/monero_$now/
 
 sudo rm linux64*
 sudo wget https://downloads.getmonero.org/linux64
@@ -18,15 +18,15 @@ export mos_service="mos_bitmonero"
 
 /home/bob/monerodo/service_off.sh
 
-cd monero*
+cd /home/bob/monero_files/monero_$now/monero*/
 
-sudo cp monerod /bin
-sudo cp monero-wallet-cli /bin
-sudo cp monero-wallet-rpc /bin
+sudo cp monerod /bin/
+sudo cp monero-wallet-cli /bin/
+sudo cp monero-wallet-rpc /bin/
 
 sudo sed -i -e "s/333.333.333.333/$current_ip/g" /home/bob/monerodo/conf_files/mos_bitmonero.conf
 
-sudo cp /home/bob/monerodo/conf_files/mos_bitmonero.conf /home/bob/.monerodo
+sudo cp /home/bob/monerodo/conf_files/mos_bitmonero.conf /home/bob/.monerodo/
 sudo cp /home/bob/monerodo/conf_files/mos_bitmonero.conf /etc/init/
 
 echo "You'll have to turn monero core on again in the settings menu. Press enter to continue"

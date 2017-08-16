@@ -75,7 +75,7 @@ export mos_service="mos_nodowallet"
 #get current ip and update mos_nodowallet.conf file
 
 sudo mv $FILEDIR/mos_nodowallet.conf $FILEDIR/mos_nodowallet.previous
-cp /home/bob/monerodo/conf_files/mos_nodowallet.base $FILEDIR/mos_nodowallet.conf
+sudo cp /home/bob/monerodo/conf_files/mos_nodowallet.base $FILEDIR/mos_nodowallet.conf
 echo "exec monero-wallet-rpc --wallet-file /monerodo/wallets/$nodowallet --password $nodopass --daemon-host $current_ip --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082" >> $FILEDIR/mos_nodowallet.conf
 
 

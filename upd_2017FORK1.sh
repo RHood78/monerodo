@@ -31,17 +31,17 @@ cd /monerodo/
 
 sudo git clone https://github.com/RHood78/cryptonote-xmr-pool.git pool
 
-cd pool
+cd /monerodo/pool/
 
 sudo git checkout clean
 
-sudo rm-r node_modules
+sudo rm -r node_modules
 
 sudo nvm alias default v6.9.2
 
 sudo cp /monerodo/pool/config_example.json /monerodo/pool/config.json
 
-cd /monerodo/pool
+cd /monerodo/pool/
 sudo cp /monerodo/pool/config.json $FILEDIR/config.json
 
 echo "##### STARTING POOL COMPILE ######"
@@ -58,7 +58,7 @@ now=$(date +"%m_%d_%Y")
 
 cd /home/bob/monero_files/
 sudo mkdir monero_$now
-cd monero_$now
+cd /home/bob/monero_files/monero_$now/
 
 sudo rm linux64*
 
@@ -72,7 +72,7 @@ export mos_service="mos_bitmonero"
 
 /home/bob/monerodo/service_off.sh
 
-cd monero*
+cd /home/bob/monero_files/monero_$now/monero*
 
 sudo cp monerod /bin/
 sudo cp monero-wallet-cli /bin/

@@ -1,7 +1,7 @@
 #1/bin/bash/
 
 ./important.sh
-echo "This can take a while. You will also have to reconfigure your pool server wallet and mininodo wallet when done (it will load them automatically)."
+echo "IMPORTANT-Setup Pool Wallet BEFORE Running this Update! This can take a while. You will also have to reconfigure your pool server wallet at the end of the update.(it will load it automatically)."
 echo "Ready !?!?!?!?! Type yes or no"
 read update
 case "$update" in
@@ -94,10 +94,10 @@ echo "Time to reconfigure the pool wallet!!"
 echo ""
 ./setup_pool_wallet.sh
 
-./important.sh
-echo "Time to reconfigure the MiniNodo wallet!"
-echo ""
-./setup_mininodo_wallet.sh
+#./important.sh
+#echo "Time to reconfigure the MiniNodo wallet!"
+#echo ""
+#./setup_mininodo_wallet.sh
 
 echo "yes" > $FILEDIR/2017FORK1.txt
 

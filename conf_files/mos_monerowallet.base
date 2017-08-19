@@ -3,7 +3,9 @@ stop on stopping mos_bitmonero
 console log
 respawn
 respawn limit 10 10
-post-stop exec echo "Your pool wallet is not running" > /home/bob/.monerodo/status_poolwallet.txt
 
+pre-start exec logrotate -f /etc/logrotate.d/upstart
+post-start exec sh -c tail -n +0 --pid=$$ -f /var/log/upstart/mos_monerowallet.log | sudo sed -i -e "\$aRun net_service" /var/log/upstart/mos_monerowallet.log && kill $$
+post-stop exec echo "Your pool wallet is not running" > /home/bob/.monerodo/status_poolwallet.txt
 
 

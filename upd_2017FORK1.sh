@@ -16,7 +16,7 @@ sudo apt-get -y upgrade
 sudo apt-get -y autoremove
 sudo apt-get -y remove nodejs
 
-sudo wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+sudo wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 
 export NVM_DIR="/home/bob/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
